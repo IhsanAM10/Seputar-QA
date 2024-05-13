@@ -56,5 +56,12 @@ describe("SauceDemo Test", () => {
     cy.get(".summary_info").should("be.visible");
     cy.get("#finish").click();
     cy.url().should("include", "checkout-complete.html");
+
+     it("Should logout", () => {
+    cy.get(".bm-burger-button").click(); // Open menu
+    cy.get("#logout_sidebar_link").click(); // Click logout link
+    cy.url().should("include", "index.html"); // Verify logout redirects to login page
   });
 });
+    
+ 
